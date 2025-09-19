@@ -15,7 +15,10 @@ let calcBmi = (e) => {
   if (!weight || !height || weight <= 0 || height <= 0) {
     alert("Please enter valid details");
   } else {
-    let bmi = (weight / (height * height)) * 703;
+    let weightInKg = Number(weight)
+      let heightInMeters = Number(height) * 0.0254
+      
+    let bmi = (weightInKg / (heightInMeters * heightInMeters));
     setbmi(bmi.toFixed(1));
 
     if (bmi < 18.5) {
@@ -41,7 +44,7 @@ let reload = () =>{
         <h2 className="text-3xl font-extrabold text-center mb-8 text-yellow-300 drop-shadow-md">BMI Calculator</h2>
         <form onSubmit={calcBmi} className="space-y-5">
           <div  className="flex flex-col">
-            <label className="mb-2 font-semibold text-green-300"> Weight (ibs)</label>
+            <label className="mb-2 font-semibold text-green-300"> Weight (Kg)</label>
             <input
               type="text"
               placeholder="Enter Weight value"
@@ -52,7 +55,7 @@ let reload = () =>{
           </div>
 
           <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-pink-300"> Height (ibs)</label>
+            <label className="mb-2 font-semibold text-pink-300"> Height (inhes)</label>
             <input
               type="text"
               placeholder="Enter height value in inches"
